@@ -160,8 +160,27 @@ def add_depense():
 
     save_data(data)
     return redirect("/depenses")
+    
+    
+# -------------------------
+# DELETE DEPENSE
+# -------------------------
+@app.route("/delete_categorie/<type>/<cat>", methods=["POST"])
+def delete_categorie(type, cat):
+    data = load_data()
+    month = month_key()
 
+    data["history"].setdefault(month, {"revenus": {}, "depenses": {}})
 
+    if type == "revenus":
+        data["history"][month]["revenus"].pop(cat, None)
+
+    if type == "depenses":
+        data["history"][month]["depenses"].pop(cat, None)
+
+    save_data(data)
+    return redirect(request.referrer)
+    
 # -------------------------
 # HISTORIQUE LISTE
 # -------------------------
