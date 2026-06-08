@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dépenses</title>
+
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:#000;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial;
+}
+
+.back{
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:28px;
+    color:#0a84ff;
+    text-decoration:none;
+}
+
+.card{
+    background:#1c1c1e;
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:14px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+}
+
+.red{color:#ff453a;}
+
+form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+input{
+    width:90%;
+    max-width:320px;
+    padding:12px;
+    margin:8px 0;
+    border-radius:12px;
+    border:none;
+    background:#2c2c2e;
+    color:#fff;
+    text-align:center;
+}
+
+button{
+    width:90%;
+    max-width:320px;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    background:#0a84ff;
+    color:#fff;
+    font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<a class="back" href="/">‹</a>
+
+<div class="card">
+{% for c,m in depenses.items() %}
+<div class="row">
+<span>{{ c }}</span>
+<span class="red">{{ m }} €</span>
+</div>
+{% endfor %}
+</div>
+
+<div class="card">
+
+<form method="POST" action="/add_depense">
+<input name="categorie" placeholder="Catégorie">
+<input name="montant" type="number" placeholder="Montant">
+<button>Ajouter dépense</button>
+</form>
+
+</div>
+
+</body>
+</html>

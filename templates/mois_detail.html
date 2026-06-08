@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Détail</title>
+
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:#000;
+    color:#fff;
+
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial;
+}
+
+.card{
+    background:rgba(28,28,30,0.9);
+    backdrop-filter:blur(20px);
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:14px;
+    animation:fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+}
+
+.green{color:#30d158;}
+.red{color:#ff453a;}
+
+.back{
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:28px;
+    color:#0a84ff;
+    text-decoration:none;
+}
+
+.title{
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<a class="back" href="/historique">‹</a>
+
+<div class="title">{{ label }}</div>
+
+<div class="card">
+{% for c,v in revenus.items() %}
+<div class="row">
+<span>{{ c }}</span>
+<span class="green">{{ v }} €</span>
+</div>
+{% endfor %}
+</div>
+
+<div class="card">
+{% for c,v in depenses.items() %}
+<div class="row">
+<span>{{ c }}</span>
+<span class="red">{{ v }} €</span>
+</div>
+{% endfor %}
+</div>
+
+<div class="card" style="text-align:center;">
+Total : {{ total }} €
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "actuel": 2550.0,
+  "history": {
+    "2026-06": {
+      "revenus": {
+        "Salaire": 1500.0
+      },
+      "depenses": {
+        "Loyer": 485.0
+      }
+    }
+  },
+  "last_month": "2026-06",
+  "current": "2026-06"
+}
