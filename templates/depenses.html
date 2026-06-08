@@ -73,11 +73,22 @@ button{
 <a class="back" href="/">‹</a>
 
 <div class="card">
-{% for c,m in depenses.items() %}
-<div class="row">
-<span>{{ c }}</span>
-<span class="red">{{ m }} €</span>
+{% for c, m in depenses.items() %}
+
+<div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:#1c1c1e;border-radius:12px;margin-bottom:10px;color:white;">
+
+    <div>
+        <b>{{ c }}</b> : {{ m }} €
+    </div>
+
+    <form method="POST" action="/delete_categorie/depenses/{{ c }}">
+        <button style="background:red;color:white;border:none;border-radius:8px;padding:5px 10px;">
+            ✕
+        </button>
+    </form>
+
 </div>
+
 {% endfor %}
 </div>
 
